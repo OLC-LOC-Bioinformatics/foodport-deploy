@@ -1,0 +1,15 @@
+site_name: FoodPort Deploy
+nav:
+    - 'index.md'
+    - 'connect.md'
+    - 'build.md'
+theme:
+  name: material
+  features:
+    - toc.follow
+    - toc.integrate
+    - navigation.tabs
+    - content.code.copy
+markdown_extensions:
+  - attr_list
+  - md_in_html
