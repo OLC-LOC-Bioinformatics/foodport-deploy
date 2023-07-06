@@ -2,14 +2,14 @@
 
 To develop applications for [FoodPort](http://10.148.57.4/), you need to be able to connect to the CFIA network **and** have a way of SSHing into FoodPort using an SSH client (e.g. [PuTTY](https://putty.org/) or [Visual Studio Code](https://code.visualstudio.com/) with an [SSH extension](https://code.visualstudio.com/docs/remote/ssh)).
 
-You'll also need an RSA private key file which can be obtained by contacting Adam Koziol ([adam.koziol@inspection.gc.ca](mailto:adam.koziol@inspection.gc.ca)).
+You'll also need a username and an RSA private key file which can be obtained by contacting Adam Koziol ([adam.koziol@inspection.gc.ca](mailto:adam.koziol@inspection.gc.ca)).
 
 ## Using a terminal
 
 With a private key file `id_rsa`:
 
 ```bash
-ssh -i id_rsa cfiaadmin@10.148.57.4
+ssh -i id_rsa [username]@10.148.57.4
 ```
 
 ## Using VS Code's Remote - SSH extension
@@ -24,7 +24,7 @@ ssh -i id_rsa cfiaadmin@10.148.57.4
 
     ![Add new remote connection in VS Code](assets/images/vs-code-remote-explorer-add.png)
 
-4. Enter the SSH connection command (e.g. `ssh -i id_rsa cfiaadmin@10.148.57.4`), remembering to specify the absolute path to `id_rsa` on your system.
+4. Enter the SSH connection command (e.g. `ssh -i id_rsa [username]@10.148.57.4`), remembering to specify the absolute path to `id_rsa` on your system.
 
     ![Enter SSH connection command in VS Code](assets/images/vs-code-enter-ssh-cmd.png)
 
