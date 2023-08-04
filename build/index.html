@@ -1,0 +1,541 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../connect/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>Building apps for FoodPort - FoodPort Deploy</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#building-apps-for-foodport" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="FoodPort Deploy" class="md-header__button md-logo" aria-label="FoodPort Deploy" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FoodPort Deploy
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Building apps for FoodPort
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Homepage
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../connect/" class="md-tabs__link">
+      Connecting to FoodPort
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Building apps for FoodPort
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="FoodPort Deploy" class="md-nav__button md-logo" aria-label="FoodPort Deploy" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    FoodPort Deploy
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Homepage
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connect/" class="md-nav__link">
+        Connecting to FoodPort
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Building apps for FoodPort
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Building apps for FoodPort
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-apps-work-on-foodport" class="md-nav__link">
+    How apps work on FoodPort
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#developing-in-vms" class="md-nav__link">
+    Developing in VMs
+  </a>
+  
+    <nav class="md-nav" aria-label="Developing in VMs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spinning-up-a-new-vm" class="md-nav__link">
+    Spinning up a new VM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connecting-to-a-new-vm" class="md-nav__link">
+    Connecting to a new VM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-software-and-other-dependencies-in-a-new-vm" class="md-nav__link">
+    Installing software and other dependencies in a new VM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capturing-a-new-vm-as-a-vm-image-version" class="md-nav__link">
+    Capturing a new VM as a VM image version
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-user-interface" class="md-nav__link">
+    Creating a user interface
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="building-apps-for-foodport">Building apps for FoodPort</h1>
+<p>To build applications for <a href="http://10.148.57.4/">FoodPort</a>, you must have access to the Microsoft Azure <a href="https://portal.azure.com/#home">FoodPort Portal</a> and have the necessary permissions for creating a new <strong>virtual machine (VM)</strong> image.
+Contact Adam Koziol (<a href="mailto:adam.koziol@inspection.gc.ca">adam.koziol@inspection.gc.ca</a>) to obtain these necessary permissions.</p>
+<h2 id="how-apps-work-on-foodport">How apps work on FoodPort</h2>
+<p>When a user runs a command on FoodPort (e.g. assembling a bacterial genome), a batch VM is created based upon a pre-existing VM image which contains the necessary software and dependencies for executing this command.
+If there are any files that are needed as input for the software inside of the batch VM (e.g. <code>.fastq.gz</code>), these are placed inside of a blob container and mounted to the batch VM using <a href="https://learn.microsoft.com/en-us/azure/storage/blobs/blobfuse2-what-is">BlobFuse</a>.
+Once mounted, these files are available to be used by the batch VM for processing, analysis, etc.
+Finally, a Shell command is executed within the batch VM to perform the desired task.
+All of this happens beneath the FoodPort web interface.</p>
+<p>Therefore, the requirements for building an application on FoodPort are:</p>
+<ul>
+<li>A VM image containing the necessary software and dependencies for executing the desired command(s).</li>
+<li>A web user interface for users to submit their command(s).</li>
+</ul>
+<h2 id="developing-in-vms">Developing in VMs</h2>
+<p>To add software and other dependencies to your new VM image, the process is as follows:</p>
+<ol>
+<li>Spin up/start a new VM.</li>
+<li>Connect to the new VM.</li>
+<li>Install software and other dependencies.</li>
+<li>Capture the VM as a VM image version.</li>
+</ol>
+<h3 id="spinning-up-a-new-vm">Spinning up a new VM</h3>
+<p>To spin up/start a new VM:</p>
+<ol>
+<li>
+<p>In the Microsoft Azure <a href="https://portal.azure.com/#home">FoodPort Portal</a>, navigate to <a href="https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2FVirtualMachines">Virtual machines</a>.</p>
+</li>
+<li>
+<p>In the top-left corner of the window, click 'Create' and choose 'Azure virtual machine'.</p>
+</li>
+<li>
+<p>Under the Basics tab, change the following:</p>
+<ul>
+<li>Subscription: <code>CFDC-FoodPort-Sub</code></li>
+<li>Resource group: <code>CFDC-FoodPort-Batch-rg</code></li>
+<li>Virtual machine name: <code>name_of_new_image</code></li>
+<li>Region: <code>(Canada) Canada Central</code></li>
+<li>Image: <code>Ubuntu Server 20.04 LTS - x64 Gen2</code></li>
+<li>Security type: <code>Standard</code><ul>
+<li>(The image must be selected first)</li>
+</ul>
+</li>
+<li>Size: <code>Standard_D4ds_v5</code></li>
+<li>Authentication type: Password<ul>
+<li>Username: <code>[username]</code></li>
+<li>Password: <code>password</code></li>
+</ul>
+</li>
+<li>Public inbound ports: <code>None</code></li>
+</ul>
+</li>
+<li>
+<p>Under the Networking tab, change the following:</p>
+<ul>
+<li>Virtual network: <code>CFDC-FoodPort-vnet</code></li>
+<li>Subnet: <code>CFDC-FoodPort-BatchNodes-snet (10.148.57.32/27)</code></li>
+<li>Public IP: <code>None</code></li>
+</ul>
+</li>
+<li>
+<p>Under the Tags tab, change the following:</p>
+<ul>
+<li>Name: <code>TechContact</code></li>
+<li>Value: <code>email_address_of_contact</code></li>
+</ul>
+</li>
+<li>
+<p>Under the Review + create tab, click 'Create' and wait for the VM image to be created.</p>
+</li>
+</ol>
+<h3 id="connecting-to-a-new-vm">Connecting to a new VM</h3>
+<p>If you followed the previous steps, you can click on 'Go to resource' after the VM has started, then:</p>
+<ol>
+<li>In the top-left corner of the window, click 'Connect'.</li>
+<li>A new page will appear. Under the SSH tab, within Step 4, copy the Shell command that will be used to connect to the running VM.<ul>
+<li>e.g. <code>ssh -i &lt;private key path&gt; username@ip_address</code></li>
+</ul>
+</li>
+<li>Run this command in a UNIX terminal on a machine that's connected to the CFIA network, but omit the <code>-i &lt;private key path&gt;</code> part.<ul>
+<li>i.e. <code>ssh username@ip_address</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="installing-software-and-other-dependencies-in-a-new-vm">Installing software and other dependencies in a new VM</h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you connect to the VM within your terminal and then disconnect, the VM will stop, and all changes that you've made to the VM will be lost.
+Before disconnecting from the VM, remember to <a href="#capturing-a-new-vm-as-a-vm-image-version">capture the VM</a> first to <strong>save your changes</strong>.</p>
+</div>
+<p>Software and other dependencies can be installed in the new VM using normal installation commands (e.g. <code>sudo apt install</code>).
+When using commands that require SSL certificate verification by default (e.g. <code>wget</code>), you may receive an error because of the CFIA firewall.
+If you require assistance with this, please contact Adam Koziol (<a href="mailto:adam.koziol@inspection.gc.ca">adam.koziol@inspection.gc.ca</a>).</p>
+<h3 id="capturing-a-new-vm-as-a-vm-image-version">Capturing a new VM as a VM image version</h3>
+<p>A running VM can be <strong>captured</strong> as a new VM image version, which allows the user to save changes that are made to the software environment within the VM for future use after the running VM is shut down.</p>
+<p>To capture a running VM as a VM image version:</p>
+<ol>
+<li>
+<p>Navigate to <a href="https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2FVirtualMachines">Virtual machines</a>, click on the running virtual machine, and go to the 'Overview' section.</p>
+</li>
+<li>
+<p>At the top of the window, click 'Capture'.</p>
+<p><img alt="Capture a VM in Azure FoodPort Portal" src="../assets/images/capture-vm.png" /></p>
+</li>
+<li>
+<p>Choose the following:</p>
+<ul>
+<li>Subscription: <code>CFDC-FoodPort-Batch-rg</code></li>
+<li>Share image to Azure compute gallery: 'Yes, share it to a gallery as a VM image version'</li>
+<li>(Optional) Check 'Automatically delete this virtual machine after creating the image'</li>
+<li>Target Azure compute gallery: <code>[Gallery where the VM image is located]</code></li>
+<li>Operating system state: <code>Generalized</code></li>
+<li>Target VM image definition: <code>[VM image name]</code></li>
+<li>Version number: <code>[VM image version number]</code><ul>
+<li>e.g. <code>0.0.2</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Under the Review + create tab, click 'Create' and wait for the VM to be captured as a new VM image version (could take a few minutes).</p>
+</li>
+</ol>
+<h2 id="creating-a-user-interface">Creating a user interface</h2>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.follow", "toc.integrate", "navigation.tabs", "content.code.copy"], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
