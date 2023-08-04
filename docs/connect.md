@@ -1,7 +1,6 @@
 # Connecting to FoodPort
 
-To develop applications for [FoodPort](http://10.148.57.4/), you need to be able to connect to the CFIA network **and** have a way of SSHing into FoodPort using an SSH client (e.g. [PuTTY](https://putty.org/) or [Visual Studio Code](https://code.visualstudio.com/) with an [SSH extension](https://code.visualstudio.com/docs/remote/ssh)).
-
+To develop applications for [FoodPort](http://10.148.57.4/), you need to be able to connect to the CFIA network **and** be able to connect to FoodPort using an SSH client (e.g. [PuTTY](https://putty.org/), or [Visual Studio Code](https://code.visualstudio.com/) with an [SSH extension](https://code.visualstudio.com/docs/remote/ssh)).
 You'll also need a username and an RSA private key file which can be obtained by contacting Adam Koziol ([adam.koziol@inspection.gc.ca](mailto:adam.koziol@inspection.gc.ca)).
 
 ## Using a terminal
