@@ -30,8 +30,11 @@ To add software and other dependencies to your new VM image, the process is as f
 To spin up/start a new VM:
 
 1. In the Microsoft Azure [FoodPort Portal](https://portal.azure.com/#home), navigate to [Virtual machines](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2FVirtualMachines).
+
 2. In the top-left corner of the window, click 'Create' and choose 'Azure virtual machine'.
+   
 3. Under the Basics tab, change the following:
+
       - Subscription: `CFDC-FoodPort-Sub`
       - Resource group: `CFDC-FoodPort-Batch-rg`
       - Virtual machine name: `name_of_new_image`
@@ -44,13 +47,18 @@ To spin up/start a new VM:
         - Username: `[username]`
         - Password: `password`
       - Public inbound ports: `None`
+
 4. Under the Networking tab, change the following:
+
       - Virtual network: `CFDC-FoodPort-vnet`
       - Subnet: `CFDC-FoodPort-BatchNodes-snet (10.148.57.32/27)`
       - Public IP: `None`
+
 5. Under the Tags tab, change the following:
+
       - Name: `TechContact`
       - Value: `email_address_of_contact`
+
 6. Under the Review + create tab, click 'Create' and wait for the VM image to be created.
 
 ### Connecting to a new VM
@@ -72,7 +80,31 @@ If you followed the previous steps, you can click on 'Go to resource' after the 
 
 Software and other dependencies can be installed in the new VM using normal installation commands (e.g. `sudo apt install`).
 When using commands that require SSL certificate verification by default (e.g. `wget`), you may receive an error because of the CFIA firewall.
+If you require assistance with this, please contact Adam Koziol ([adam.koziol@inspection.gc.ca](mailto:adam.koziol@inspection.gc.ca)).
 
 ### Capturing a new VM as a VM image version
+
+A running VM can be **captured** as a new VM image version, which allows the user to save changes that are made to the software environment within the VM for future use after the running VM is shut down.
+
+To capture a running VM as a VM image version:
+
+1. Navigate to [Virtual machines](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2FVirtualMachines), click on the running virtual machine, and go to the 'Overview' section.
+   
+2. At the top of the window, click 'Capture'.
+
+    ![Capture a VM in Azure FoodPort Portal](assets/images/capture-vm.png)
+
+3. Choose the following:
+
+      - Subscription: `CFDC-FoodPort-Batch-rg`
+      - Share image to Azure compute gallery: 'Yes, share it to a gallery as a VM image version'
+      - (Optional) Check 'Automatically delete this virtual machine after creating the image'
+      - Target Azure compute gallery: `[Gallery where the VM image is located]`
+      - Operating system state: `Generalized`
+      - Target VM image definition: `[VM image name]`
+      - Version number: `[VM image version number]`
+        - e.g. `0.0.2`
+
+4. Under the Review + create tab, click 'Create' and wait for the VM to be captured as a new VM image version (could take a few minutes).
 
 ## Creating a user interface

@@ -11,6 +11,7 @@ theme:
     - navigation.tabs
     - content.code.copy
 markdown_extensions:
+  - admonition
   - attr_list
   - md_in_html
   - pymdownx.highlight:
@@ -20,4 +21,4 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
-
+  - pymdownx.details
